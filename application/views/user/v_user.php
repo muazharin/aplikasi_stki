@@ -27,12 +27,12 @@
                             if(isset($user) ){
                             foreach ($user as $data) { ?>
                   <tr>
-                  <td><?=$no++?></td>
-                  <td><?=$data->user_nama?></td>
-                  <td><?=$data->username?></td>
+                  <td style="text-align:center"><?=$no++?></td>
+                  <td style="text-align:center"><?=$data->user_nama?></td>
+                  <td style="text-align:center"><?=$data->username?></td>
                   
                 <td style="text-align:center">
-                <form action="<?=base_url()?>User/hapus/<?=$data->user_id?>" method="post">
+                <form action="<?=base_url()?>User/delete/<?=$data->user_id?>" method="post">
                     <a href="<?=base_url()?>User/edit/<?=$data->user_id?>" class="btn btn-primary " title="Edit" >
                     <i class="fa fa-edit"></i>
                     </a>

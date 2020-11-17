@@ -1,11 +1,14 @@
  <!-- Main content -->
  <section class="content">
+
+ <div class="row align-items-center justify-content-center">
+     <div class="col-12 col-sm-6 col-lg-8">
  <?php $no=0; foreach($user as $data): $no++; ?>
       <div class="container-fluid">
       <div class="card card-primary">
      
               <div class="card-header">
-                <h3 class="card-title">Edit Data User</h3>
+                <h3 class="card-title">Data User</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -20,10 +23,7 @@
                     <label for="exampleInputEmail1">Username</label>
                     <input type="text" class="form-control" id="exampleInputEmail1" name="usr" value="<?=$data->username?>">
                   </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" name="pw" value="<?=$data->user_pass?>">
-                  </div>
+                  
                   
                   
                 </div>
@@ -38,4 +38,6 @@
         
       </div><!--/. container-fluid -->
       <?php endforeach; ?>
+     </div>
+ </div>
     </section>

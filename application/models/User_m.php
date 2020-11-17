@@ -31,7 +31,7 @@ class User_m extends CI_Model {
         return $data;
     }
 
-    function edit_kar($id,$data)
+    function update_user($id,$data)
     {
         $this->db->where('user_id', $id);
         $this->db->update('tbuser', $data);
@@ -39,14 +39,11 @@ class User_m extends CI_Model {
         return TRUE;
     }
 
-    function delete($id)
+    function delete($data)
     {
-        $this->db->where('user_id', $id);
+        $this->db->where($data);
         $this->db->delete('tbuser');
-        if ($this->db->affected_rows() == 1) {
-            return TRUE;
-        }
-        return FALSE;
+        return TRUE;
     }
 
 }

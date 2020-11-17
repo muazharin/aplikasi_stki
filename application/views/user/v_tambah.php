@@ -1,10 +1,12 @@
  <!-- Main content -->
  <section class="content">
+   <div class="row align-items-center justify-content-center">
+     <div class="col-12 col-sm-6 col-lg-8">
       <div class="container-fluid">
       <div class="card card-primary">
      
               <div class="card-header">
-                <h3 class="card-title">Tambah User</h3>
+                <h3 class="card-title">Input Data User</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -35,4 +37,6 @@
         
         
       </div><!--/. container-fluid -->
+      </div>
+      </div>
     </section>
