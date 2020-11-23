@@ -1,15 +1,15 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Login extends CI_Controller {
+class Login extends CI_Controller
+{
 
-	public function __construct() {
-        parent::__construct();
-        $this->load->model('Login_m');
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('Login_m');
 		$this->load->library('bcrypt');
-		
-		
-    }
+	}
 
 	public function index()
 	{
@@ -21,54 +21,52 @@ class Login extends CI_Controller {
 	{
 		# code...
 		if (isset($_POST['username']) && isset($_POST['pass'])) {
-			
+
 			$username = $this->input->post('username');
 			$pass = $this->input->post('pass');
 			$hash = $this->bcrypt->hash_password($pass);	//encrypt password
 
-			if(isset($_POST["remember"])){
-	        	$hour = time() + 3600 * 24 * 30;
-	        	setcookie('username', $username, $hour);
-	            setcookie('user_pass', $pass, $hour);
-	        }
+			if (isset($_POST["remember"])) {
+				$hour = time() + 3600 * 24 * 30;
+				setcookie('username', $username, $hour);
+				setcookie('user_pass', $pass, $hour);
+			}
 
 			//ambil data dari database
 			$check = $this->Login_m->prosesLogin($username);
 			$hasil = 0;
-			if(isset($check)){
+			if (isset($check)) {
 				$hasil++;
 			}
 
 			//echo $pass;
 			//echo "<br>";
-			if($hasil > 0){
-				$data = $this->Login_m->viewDataByID($username); 
+			if ($hasil > 0) {
+				$data = $this->Login_m->viewDataByID($username);
 				foreach ($data as $dkey) {
 					$passDB = $dkey->user_pass;
 					//$role = $dkey->role;
 					// $avatar = $dkey->foto;
 					//$idusr = $dkey->id;
 				}
-				if ($this->bcrypt->check_password($pass, $passDB))
-				{
+				if ($this->bcrypt->check_password($pass, $passDB)) {
 					// Password match
-					$this->session->set_userdata('userlogin',$username);
-					
+					$this->session->set_userdata('userlogin', $username);
 
-					redirect(base_url().'Home');
-					
-				}else{
+
+					redirect(base_url() . 'Home');
+				} else {
 					// Password does not match
 					$this->session->set_flashdata("pesan", "<div class=\"alert alert-danger\" id=\"alert\"><i class=\"glyphicon glyphicon-remove\"></i> Gagal Login, password salah</div>");
-					redirect(base_url().'Login');
+					redirect(base_url() . 'Login');
 				}
-			}else {
+			} else {
 				$this->session->set_flashdata("pesan", "<div class=\"alert alert-danger\" id=\"alert\"><i class=\"glyphicon glyphicon-remove\"></i> Gagal Login, username tidak ditemukan</div>");
-				redirect(base_url().'Login');
+				redirect(base_url() . 'Login');
 			}
 		}
 	}
-	
+
 	public function logout()
 	{
 		$params = array('userlogin', 'user_id');
@@ -76,6 +74,4 @@ class Login extends CI_Controller {
 		redirect('Login');
 		# code...
 	}
-
-
 }

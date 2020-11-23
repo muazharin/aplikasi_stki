@@ -1,25 +1,25 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class Home extends CI_Controller
+{
 
-	public function __construct() {
-		parent::__construct();
-		$this->load->model('Login_m');
-		if(!$this->session->userdata('userlogin'))
-        {
-            $pemberitahuan = "<div class='alert alert-warning'>Anda harus login dulu </div>"
-            ;
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('Login_m');
+        if (!$this->session->userdata('userlogin')) {
+            $pemberitahuan = "<div class='alert alert-warning'>Anda harus login dulu </div>";
             $this->session->set_flashdata('pesan', $pemberitahuan);
             redirect('Login');
         }
-	}
-	
-	public function index()
-	{
+    }
+
+    public function index()
+    {
         $data = [
-            'tittle' 		 => 'Dashboard'
-            ];
-		$this->template->load('template','dashboard',$data);
-	}
+            'tittle'          => 'Histori'
+        ];
+        $this->template->load('template', 'dashboard', $data);
+    }
 }
