@@ -77,7 +77,7 @@
               <a href="<?= base_url("Home") ?>" class="nav-link ">
                 <i class="nav-icon fas fa-newspaper"></i>
                 <p>
-                  Histori
+                  Slip
                 </p>
               </a>
             </li>
