@@ -8,7 +8,10 @@ class Struk extends CI_Controller
 
     public function index()
     {
-        $this->load->view('struk.html');
+        $data = [
+            'tittle'          => 'Struk'
+        ];
+        $this->template->load('template', 'v_struk', $data);
     }
 }
 

@@ -16,9 +16,10 @@
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/dist/css/adminlte.min.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
 
+
 </head>
 
-<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<body class="sidebar-mini layout-fixed sidebar-collapse" style="height: auto;">
   <div class="wrapper">
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -45,7 +46,7 @@
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <aside class="main-sidebar sidebar-dark-mini elevation-4">
       <!-- Brand Logo -->
       <a href="<?= base_url('Home') ?>" class="brand-link">
         <img src="<?php echo base_url() ?>assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
@@ -74,7 +75,7 @@
                with font-awesome or any other icon font library -->
             <li class="nav-item">
               <a href="<?= base_url("Home") ?>" class="nav-link ">
-                <i class="nav-icon fas fa-history"></i>
+                <i class="nav-icon fas fa-newspaper"></i>
                 <p>
                   Histori
                 </p>
@@ -143,10 +144,9 @@
 
     <!-- Main Footer -->
     <footer class="main-footer">
-      <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-      All rights reserved.
+      <strong>Copyright &copy; 2020 <a href="#">MSAL GROUP</a>.</strong>
       <div class="float-right d-none d-sm-inline-block">
-        <b>Version</b> 3.1.0-pre
+        <b>Version</b> 1.0.0
       </div>
     </footer>
   </div>

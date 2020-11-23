@@ -26,11 +26,11 @@ class Login extends CI_Controller
 			$pass = $this->input->post('pass');
 			$hash = $this->bcrypt->hash_password($pass);	//encrypt password
 
-			if (isset($_POST["remember"])) {
-				$hour = time() + 3600 * 24 * 30;
-				setcookie('username', $username, $hour);
-				setcookie('user_pass', $pass, $hour);
-			}
+			// if (isset($_POST["remember"])) {
+			// 	$hour = time() + 3600 * 24 * 30;
+			// 	setcookie('username', $username, $hour);
+			// 	setcookie('user_pass', $pass, $hour);
+			// }
 
 			//ambil data dari database
 			$check = $this->Login_m->prosesLogin($username);
