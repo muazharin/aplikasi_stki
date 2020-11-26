@@ -22,4 +22,13 @@ class Home extends CI_Controller
         ];
         $this->template->load('template', 'dashboard', $data);
     }
+
+    public function tes()
+    {
+        # code...
+        $data = [
+            'tittle'          => 'Slip'
+        ];
+        $this->template->load('template', 'v_coba', $data);
+    }
 }
