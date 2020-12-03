@@ -5,132 +5,143 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style type="text/css">
-        /* Kode CSS Untuk PAGE ini dibuat oleh http://jsfiddle.net/2wk6Q/1/ */
-        body {
-            width: 100%;
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            background-color: #FAFAFA;
-            font: 12pt "Tahoma";
-        }
+    * {
+        box-sizing: border-box;
+    }
 
-        * {
-            box-sizing: border-box;
-            -moz-box-sizing: border-box;
-        }
+    .header {
+        overflow: hidden;
+        background-color: #02004B;
+        padding: 8px 4px;
+    }
 
-        .page {
-            width: 210mm;
-            min-height: 297mm;
-            padding: 20mm;
-            margin: 10mm auto;
-            border: 1px #D3D3D3 solid;
-            border-radius: 5px;
-            background: white;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-        }
+    .header-text {
+        color: white;
+    }
 
-        .subpage {
-            padding: 1cm;
-            border: 5px red solid;
-            height: 257mm;
-            outline: 2cm #FFEAEA solid;
-        }
+    .span_text {
+        color: #000000;
+    }
 
-        @page {
-            size: A4;
-            margin: 0;
-        }
+    .text-man {
+        font-size: 12px;
+    }
 
-        @media print {
+    .text {
+        font-size: 10px;
+    }
 
-            html,
-            body {
-                width: 210mm;
-                height: 297mm;
-            }
+    .up_mar {
+        margin-bottom: 0px;
+    }
 
-            .page {
-                margin: 0;
-                border: initial;
-                border-radius: initial;
-                width: initial;
-                min-height: initial;
-                box-shadow: initial;
-                background: initial;
-                page-break-after: always;
-            }
-        }
-
-        .bk_color {
-            background-color: #384355;
-        }
-
-        .span_text {
-            color: #384355;
-        }
-
-        .text-man {
-            font-size: 12px;
-        }
-
-        .up_mar {
-            margin-bottom: 0px;
-        }
-
-        input[type=checkbox] {
-            /* Double-sized Checkboxes */
-            -ms-transform: scale(1.5);
-            /* IE */
-            -moz-transform: scale(1.5);
-            /* FF */
-            -webkit-transform: scale(1.5);
-            /* Safari and Chrome */
-            -o-transform: scale(1.5);
-            /* Opera */
-            transform: scale(1.5);
-            padding: 5px;
-        }
-
-        .ta {
-            /* border-style: none; */
-            border-right: none;
-            border-top: none;
-        }
-
-        .body-man {
-            font-size: 13px;
-        }
+    input[type=checkbox] {
+        /* Double-sized Checkboxes */
+        -ms-transform: scale(1.0);
+        /* IE */
+        -moz-transform: scale(1.0);
+        /* FF */
+        -webkit-transform: scale(1.0);
+        /* Safari and Chrome */
+        -o-transform: scale(1.0);
+        /* Opera */
+        transform: scale(1.0);
+        padding: 2px;
+    }
     </style>
     <title>Document</title>
 </head>
 
 <body>
-    <div class="book">
-        <div class="container">
-            <div class="row bk_color text-light">
-                <div class="col-10">
-                    <h5 style="margin-bottom:-3px; margin-top: 10px"><b>aplikasi setoran/transfer/kliring/inkaso</b></h5><i>
-                        deposit/transfer/clearing/collection form</i>
-                </div>
-                <!-- <div class="col-2"><img src="<?= base_url() ?>assets/dist/img/mandiri.png" class="img-fluid" alt="Responsive image"></div> -->
-            </div>
-
-            <div class="row">
-                <div class="col-6">
-                    <div style="margin-bottom:-3px;"><b class="span_text text-man">kepada</b> to <b class="span_text text-man"> PT Bank Mandiri (Persero) Tbk</b><span style="float: right;" class="text-man">&nbsp;<b>tanggal</b> <i>date</i><input type="date" class="" name="" id="tgl"></span>
+    <div class="container">
+        <div class="row">
+            <div class="col-10">
+                <div class="header">
+                    <div class="header-text">
+                        <h5 style="margin-bottom:-3px; margin-top: 10px"><b>aplikasi setoran/transfer/kliring/inkaso</b>
+                        </h5><i>
+                            deposit/transfer/clearing/collection form</i>
                     </div>
-                    <span class="text-man ">harap dilakukan transaksi berikut <i>please do this transaction:</i></span>
-
-
-                    <br><br><br>
                 </div>
             </div>
-
-
         </div>
 
+        <div class="row">
+            <div class="col-6">
+                <div style="margin-bottom:-2px;"><b class="span_text text-man">kepada</b> to <b
+                        class="span_text text-man"> PT Bank Mandiri (Persero) Tbk</b>&nbsp;&nbsp;&nbsp;&nbsp;<span
+                        style="text-align: center;" class="text-man"><b>tanggal</b> <i>date</i><input type="date"
+                            class="" name="" id="tgl"></span>
+                </div>
+                <span class="text-man">harap dilakukan transaksi berikut <i>please do this transaction:</i></span>
+
+                <div class="up_mar">
+                    <table width="20%" border="0" cellspacing="0" cellpadding="3">
+                        <tr>
+                            <td class="text-man up_mar span_text" style="vertical-align: text-top;"><b>
+                                    transaksi</b><br>
+                                <div style="margin-top: -7px;"><i>transaction</i></div>
+                            </td>
+                            <td class="text up_mar"><input type="checkbox" id="deposit" name="cb_1">&nbsp;
+                            </td>
+                            <td class="text up_mar span_text" style="vertical-align: text-top;"><b>setoran</b><br>
+                                <div style="margin-top: -3px;"><i>deposit</i></div>
+                            </td>
+                            <td class="text up_mar"><input type="checkbox" id="tt" name="cb_1">&nbsp;
+                            </td>
+                            <td class="text up_mar span_text" style="vertical-align: text-top;"><b> TT</b><br>
+                                <div style="margin-top: -3px;"><i>tt</i></div>
+                            </td>
+                            <td class="text up_mar"><input type="checkbox" id="rtgs" name="cb_1">&nbsp;
+                            </td>
+                            <td class="text up_mar span_text" style="vertical-align: text-top;"><b>RTGS</b><br>
+                                <div style="margin-top: -5px;"><i>rtgs</i></div>
+                            </td>
+                            <td class="text up_mar"><input type="checkbox" id="kliring" name="cb_1">&nbsp;
+                            </td>
+                            <td class="text span_text" style="vertical-align: text-top;">
+                                <b>Kliring-inkaso</b><br>
+                                <div style="margin-top: -5px;"><i>clearing-collection</i></div>
+                            </td>
+                            <td class="text up_mar"><input type="checkbox" id="deposit" name="cb_1">&nbsp;
+                            </td>
+                            <td class="text up_mar span_text" style="vertical-align: text-top;"><b> setoran</b><br>
+                                <div style="margin-top: -5px;"><i>deposit</i></div>
+                            </td>
+                            <td class="text up_mar"><input type="checkbox" id="deposit" name="cb_1">&nbsp;
+                            </td>
+                            <td class="text up_mar span_text" style="vertical-align: text-top;"><b> setoran</b><br>
+                                <div style="margin-top: -5px;"><i>deposit</i></div>
+                            </td>
+                            <!-- <td class="text-man up_mar"><input type="checkbox" id="tt" name="cb_1" />
+                            </td>
+                            <td class="text-man up_mar span_text" style="vertical-align: text-top;"><b> TT</b><br>
+                                <div style="margin-top: -7px;"><i>tt</i></div>
+                            </td>
+                            <td class="text-man up_mar"><input type="checkbox" id="rtgs" name="cb_1">
+                            </td>
+                            <td class="text-man up_mar span_text" style="vertical-align: text-top;"><b> RTGS</b><br>
+                                <div style="margin-top: -7px;"><i>rtgs</i></div>
+                            </td>
+                            <td class="text-man up_mar"><input type="checkbox" id="kliring" name="cb_1">
+                            </td>
+                            <td class="text-man up_mar span_text" style="vertical-align: text-top;"><b>
+                                    Kliring-inkaso</b><br>
+                                <div style="margin-top: -7px;"><i>clearing-collection</div></i>
+                            </td>
+                            <td class="text-man up_mar"><input type="checkbox" id="bank_draft" name="cb_1">
+                            </td>
+                            <td class="text-man up_mar span_text" style="vertical-align: text-top;"><b> Bank
+                                    Draft</b><br>
+                                <div style="margin-top: -7px;"><i>bank draft</i></div>
+                            </td> -->
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
     </div>
 </body>
 

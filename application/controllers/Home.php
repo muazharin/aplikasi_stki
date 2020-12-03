@@ -8,11 +8,11 @@ class Home extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Login_m');
-        if (!$this->session->userdata('userlogin')) {
-            $pemberitahuan = "<div class='alert alert-warning'>Anda harus login dulu </div>";
-            $this->session->set_flashdata('pesan', $pemberitahuan);
-            redirect('Login');
-        }
+        // if (!$this->session->userdata('userlogin')) {
+        //     $pemberitahuan = "<div class='alert alert-warning'>Anda harus login dulu </div>";
+        //     $this->session->set_flashdata('pesan', $pemberitahuan);
+        //     redirect('Login');
+        // }
     }
 
     public function index()

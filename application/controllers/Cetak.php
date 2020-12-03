@@ -24,7 +24,7 @@ class Cetak extends CI_Controller
 
     public function printPDF()
     {
-        $this->mypdf->generate('v_dompdf', 'A4');
+        $this->mypdf->generate('v_dompdf');
     }
 }
 

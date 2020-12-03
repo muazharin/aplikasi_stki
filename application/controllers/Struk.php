@@ -11,6 +11,11 @@ class Struk extends CI_Controller
         ];
         $this->template->load('template', 'v_struk', $data);
     }
+
+    public function simpan_struk()
+    {
+        # code...
+    }
 }
 
 /* End of file Struk.php */
