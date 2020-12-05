@@ -8,6 +8,8 @@ class Home extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Login_m');
+        $this->load->model('Struk_m');
+
         // if (!$this->session->userdata('userlogin')) {
         //     $pemberitahuan = "<div class='alert alert-warning'>Anda harus login dulu </div>";
         //     $this->session->set_flashdata('pesan', $pemberitahuan);
@@ -18,7 +20,8 @@ class Home extends CI_Controller
     public function index()
     {
         $data = [
-            'tittle'          => 'Slip'
+            'tittle'          => 'Slip',
+            'struk' => $this->Struk_m->get_struk()
         ];
         $this->template->load('template', 'dashboard', $data);
     }
