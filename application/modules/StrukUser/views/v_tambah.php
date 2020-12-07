@@ -62,8 +62,9 @@ input[type=checkbox] {
                      <div class="row">
                          <div class="col-6">
                              <div class="form-group">
-                                 <input type="hidden" name="iduser" value="<?= $this->session->userdata('idlogin'); ?>">
-                                 <input type="text" value="<?= date('d-m-y') ?>">
+                                 <input type="hidden" name="iduser" value="<?= $this->session->userdata('idlog'); ?>">
+                                 <input type="hidden" name="ket" value="TAMBAH DATA SLIP">
+
                                  <div style="margin-bottom:-7px;"><b class="span_text text-man">kepada</b> to <b
                                          class="span_text text-man"> PT Bank Mandiri (Persero) Tbk</b><span
                                          style="float: right;" class="text-man"><b>tanggal</b> <i>date</i><input

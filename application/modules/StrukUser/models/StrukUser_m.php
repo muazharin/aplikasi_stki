@@ -27,6 +27,12 @@ class StrukUser_m extends CI_Model
         return $data;
     }
 
+    function add_histori($data)
+    {
+        $this->db->insert('tb_histori', $data);
+        return TRUE;
+    }
+
     function add_struk($data)
     {
         $this->db->insert('tb_struk', $data);

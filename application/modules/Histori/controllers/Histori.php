@@ -23,7 +23,7 @@ class Histori extends CI_Controller
     {
         $data = [
             'tittle'          => 'Histori',
-            // 'user'              => $this->User_m->get_user()
+            'histori'              => $this->Histori_m->gethistori()
         ];
         $this->template->load('template', 'v_histori', $data);
     }

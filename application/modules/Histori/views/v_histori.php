@@ -20,33 +20,26 @@
                              <thead>
                                  <tr>
                                      <th style="text-align:center">No</th>
-                                     <th style="text-align:center">Tanggal</th>
                                      <th style="text-align:center">User</th>
+                                     <th style="text-align:center">Tanggal</th>
+                                     <th style="text-align:center">Rupiah</th>
                                      <th style="text-align:center">Keterangan</th>
 
-                                     <th style="text-align:center">#</th>
+                                     <!-- <th style="text-align:center">#</th> -->
                                  </tr>
                              </thead>
                              <tbody>
                                  <?php $no = 1;
                                     if (isset($histori)) {
                                         foreach ($histori as $data) { ?>
-                                 <!-- <tr>
-                  <td style="text-align:center"><?= $no++ ?></td>
-                  <td style="text-align:center"><?= $data->user_nama ?></td>
-                  <td style="text-align:center"><?= $data->username ?></td>
-                  
-                <td style="text-align:center">
-                <form action="<?= base_url() ?>User/delete/<?= $data->user_id ?>" method="post">
-                    <a href="<?= base_url() ?>User/edit/<?= $data->user_id ?>" class="btn btn-primary " title="Edit" >
-                    <i class="fa fa-edit"></i>
-                    </a>
-                    <button type="submit"  class="btn btn-danger" title="Hapus" onclick="return confirm('Apakah Anda Yakin?')" >
-                    <i class="fa fa-trash"></i> 
-                    </button>
-                </form>		
-                </td>
-                  </tr> -->
+                                 <tr>
+                                     <td style="text-align:center"><?= $no++ ?></td>
+                                     <td style="text-align:center"><?= $data->user_nama ?></td>
+                                     <td style="text-align:center">
+                                         <?= date_format(date_create($data->tanggal), 'd-m-Y'); ?></td>
+                                     <td style="text-align:center"><?= $data->rupiah ?></td>
+                                     <td style="text-align:center"><?= $data->ket ?></td>
+                                 </tr>
                                  <?php }
                                     } ?>
                              </tbody>
