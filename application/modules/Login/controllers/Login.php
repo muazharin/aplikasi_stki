@@ -55,7 +55,7 @@ class Login extends CI_Controller
 					$this->session->set_userdata('idlog', $idusr);
 
 
-					redirect(base_url() . 'HomeUser');
+					redirect(base_url() . 'StrukUser');
 				} else {
 					// Password does not match
 					$this->session->set_flashdata("pesan", "<div class=\"alert alert-danger\" id=\"alert\"><i class=\"glyphicon glyphicon-remove\"></i> Gagal Login, password salah</div>");

@@ -287,7 +287,8 @@ class Struk extends CI_Controller
             'struk' => $this->Struk_m->get_id($id)
             // 'struk' => $this->Struk_m->getprint()
         ];
-        $this->mypdf->generate('v_dompdf', $data);
+        // $this->mypdf->generate('v_dompdf', $data);
+        $this->mypdf->generate('tes', $data);
         // var_dump($data);
     }
 }

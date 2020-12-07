@@ -9,6 +9,7 @@ class StrukUser extends CI_Controller
     {
         parent::__construct();
         $this->load->model('StrukUser_m');
+        date_default_timezone_set("Asia/Jakarta");
         if (!$this->session->userdata('userlogin')) {
             $pemberitahuan = "<div class='alert alert-warning'>Anda harus login dulu </div>";
             $this->session->set_flashdata('pesan', $pemberitahuan);
@@ -290,7 +291,8 @@ class StrukUser extends CI_Controller
             'struk' => $this->StrukUser_m->get_id($id)
             // 'struk' => $this->StrukUser_m->getprint()
         ];
-        $this->mypdf->generate('v_dompdf', $data);
+        // $this->mypdf->generate('v_dompdf', $data);
+        $this->mypdf->generate('v_cetak', $data);
         // var_dump($data);
     }
 }

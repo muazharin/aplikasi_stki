@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Aplikasi STKI | <?= $tittle; ?></title>
+    <title>Aplikasi Slip Bank | <?= $tittle; ?></title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -53,7 +53,7 @@
             <a href="<?= base_url('Home') ?>" class="brand-link">
                 <img src="<?php echo base_url() ?>assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">AdminLTE 3</span>
+                <span class="brand-text font-weight-light">Admin Slip Bank</span>
             </a>
 
             <!-- Sidebar -->
@@ -65,7 +65,7 @@
                             alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block"><?= $this->session->userdata('userlogin'); ?></a>
+                        <a href="#" class="d-block"><?= $this->session->userdata('userlog'); ?></a>
                     </div>
                 </div>
 
@@ -94,17 +94,9 @@
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="<?= base_url("User") ?>" class="nav-link">
-                                <i class="nav-icon fa fa-book"></i>
-                                <p>
-                                    Report
 
-                                </p>
-                            </a>
-                        </li>
                         <li class="nav-item">
-                            <a href="<?= base_url("User") ?>" class="nav-link">
+                            <a href="<?= base_url("Histori") ?>" class="nav-link">
                                 <i class="nav-icon fa fa-history"></i>
                                 <p>
                                     Histori
@@ -131,7 +123,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url("Login/logout") ?>" class="nav-link">
+                            <a href="<?= base_url("Admin/logout") ?>" class="nav-link">
                                 <i class="nav-icon fas fa-power-off "></i>
                                 <p>
                                     Logout

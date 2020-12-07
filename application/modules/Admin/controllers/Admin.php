@@ -44,10 +44,10 @@ class Admin extends CI_Controller
             if ($hasil > 0) {
                 $data = $this->Admin_m->viewDataByID($username);
                 foreach ($data as $dkey) {
-                    $passDB = $dkey->user_pass;
+                    $passDB = $dkey->password;
                     //$role = $dkey->role;
                     // $avatar = $dkey->foto;
-                    $idusr = $dkey->user_id;
+                    $idusr = $dkey->id_admin;
                 }
                 if ($this->bcrypt->check_password($pass, $passDB)) {
                     // Password match
@@ -70,7 +70,7 @@ class Admin extends CI_Controller
 
     public function logout()
     {
-        $params = array('userlogin', 'user_id');
+        $params = array('userlog', 'id_admin');
         $this->session->unset_userdata($params);
         redirect('Admin');
         # code...
