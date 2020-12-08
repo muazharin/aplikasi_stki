@@ -9,7 +9,7 @@ class StrukUser_m extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('tb_struk');
-
+        $this->db->order_by('id_struk', 'desc');
         $query = $this->db->get();
 
         if ($query->num_rows() > 0) {

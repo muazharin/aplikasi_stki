@@ -82,7 +82,7 @@ class Admin extends CI_Controller
             'tittle'          => 'Data Admin',
             'admin'              => $this->Admin_m->get_admin()
         ];
-        $this->template->load('template', 'v_dataAdmin', $data);
+        $this->template->load('template', 'v_editadmin', $data);
     }
 
     public function tambah()
@@ -108,6 +108,33 @@ class Admin extends CI_Controller
 
         );
         $this->Admin_m->add_admin($data);
+        $this->session->set_flashdata("pesan", "<div class=\"alert alert-success alert-dismissible show fade\">
+                    <div class=\"alert-body\">
+                    <button class=\"close\" data-dismiss=\"alert\">
+                        <span>×</span>
+                    </button>
+                    Data Admin Berhasil Disimpan
+                    </div>
+                </div>");
+
+        redirect(base_url('Admin/data'));
+    }
+
+    public function edit_post()
+    {
+        $id = $this->input->post('id');
+        $nama = $this->input->post('nama');
+        $username = $this->input->post('usr');
+
+
+
+        $data = array(
+            'nama' => $nama,
+            'username' => $username,
+
+
+        );
+        $this->Admin_m->update_admin($id, $data);
         $this->session->set_flashdata("pesan", "<div class=\"alert alert-success alert-dismissible show fade\">
                     <div class=\"alert-body\">
                     <button class=\"close\" data-dismiss=\"alert\">

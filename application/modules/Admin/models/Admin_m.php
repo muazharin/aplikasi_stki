@@ -40,7 +40,14 @@ class Admin_m extends CI_Model
         return $query;
     }
 
+    public function get_id($id)
+    {
+        $query = $this->db->where('id_admin', $id);
+        $q = $this->db->get('tb_admin');
+        $data = $q->result();
 
+        return $data;
+    }
 
     function viewDataByID($username)
     {
@@ -51,8 +58,6 @@ class Admin_m extends CI_Model
         return $data;
     }
 
-
-
     function checkDataUsrbyID($id, $pass)
     {
         $this->db->where('id_admin', $id);
@@ -61,6 +66,13 @@ class Admin_m extends CI_Model
         return $this->db->get('tb_admin')->row();
     }
 
+    function update_admin($id, $data)
+    {
+        $this->db->where('id_admin', $id);
+        $this->db->update('tb_admin', $data);
+
+        return TRUE;
+    }
     // function changepassUser($id, $data)
     // {
     //     $this->db->where('id_user', $id);

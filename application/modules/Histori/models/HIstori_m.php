@@ -11,7 +11,7 @@ class Histori_m extends CI_Model
         $this->db->from('tb_histori');
         $this->db->join('tbuser', 'tbuser.user_id=tb_histori.user', 'inner');
         // $this->db->join('tbalat', 'tbalat.id_devices=histori.id_devices', 'inner');
-        $this->db->order_by('id_histori', 'ASC');
+        $this->db->order_by('id_histori', 'desc');
         // $this->db->limit(20);
         $query = $this->db->get();
 

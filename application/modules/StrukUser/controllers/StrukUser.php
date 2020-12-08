@@ -91,6 +91,7 @@ class StrukUser extends CI_Controller
 
         $data = array(
             'user_id' => $idusr,
+            'tanggal_input' => date('Y-m-d'),
             'tanggal' => $tgl,
             'transaksi' => $transaksi,
             'validasi' => $validasi,
@@ -176,6 +177,7 @@ class StrukUser extends CI_Controller
     public function editpost()
     {
         $id = $this->input->post('id');
+        $idusr = $this->input->post('iduser');
         $tgl = $this->input->post('tgl');
         $transaksi = implode(',', $this->input->post('transaksi', TRUE));
         // $transaksi = $this->input->post('transaksi');
@@ -223,8 +225,11 @@ class StrukUser extends CI_Controller
         $nama3 = $this->input->post('nama3');
         $alamat3 = $this->input->post('alamat3');
         $nik_paspor = $this->input->post('nik_paspor');
+        $ket = $this->input->post('ket');
 
         $data = array(
+            'user_id' => $idusr,
+            'tanggal_input' => date('Y-m-d'),
             'tanggal' => $tgl,
             'transaksi' => $transaksi,
             'validasi' => $validasi,
@@ -272,7 +277,15 @@ class StrukUser extends CI_Controller
             'isi_rek' => $debet,
             'lain' => $lain
         );
+        $d = array(
+            'tanggal' => date('Y-m-d'),
+            'user' => $idusr,
+            'rupiah' => $stor,
+            'ket' => $ket
+
+        );
         $this->StrukUser_m->update_struk($id, $data);
+        $this->StrukUser_m->add_histori($d);
         $this->session->set_flashdata("pesan", "<div class=\"alert alert-success alert-dismissible show fade\">
                     <div class=\"alert-body\">
                     <button class=\"close\" data-dismiss=\"alert\">

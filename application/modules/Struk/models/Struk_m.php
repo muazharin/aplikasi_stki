@@ -9,6 +9,8 @@ class Struk_m extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('tb_struk');
+        $this->db->join('tbuser', 'tbuser.user_id=tb_struk.user_id', 'inner');
+        $this->db->order_by('id_struk', 'desc');
 
         $query = $this->db->get();
 
