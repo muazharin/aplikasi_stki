@@ -500,14 +500,12 @@ input[type=checkbox] {
 
                              </div>
                              <hr style="margin-top: 1px; margin-bottom: 1px;">
-                             <br>
                              <div class="text-man">
                                  <b>METODE TRANSAKSI (wajib diisi)</b><br>
                                  <i>method of transaction</i>
                                  <table width="100%" border="0">
                                      <tr>
-                                         <div class="form-group">
-
+                                         <!-- <div class="form-group"> -->
                                              <td class="text-man" style="margin-top: 2px;"><input type="checkbox"
                                                      id="cash" name="metode[]" value="tunai" /></td>
                                              <td class="text-man up_mar span_text" style="vertical-align: text-top;"><b>
@@ -530,13 +528,13 @@ input[type=checkbox] {
                                                      &nbsp;cek/bilyet giro</b><br>
                                                  <div style="margin-top: -7px;"><i>&nbsp;cheque</i></div>
                                              </td>
-                                         </div>
+                                         <!-- </div> -->
                                      </tr>
                                  </table>
                              </div>
                              <div class="text-man">
                                  <table border="1" width="100%">
-                                     <div class="form-group">
+                                     <!-- <div class="form-group"> -->
 
                                          <tr>
                                              <td width="30%" style="text-align: center;"><b>Bank Tertarik</b><i> drawee
@@ -549,30 +547,29 @@ input[type=checkbox] {
                                              </td>
                                          </tr>
                                          <tr>
-                                             <td><input size="30" type="text" name="bank1" id="bank1"></td>
-                                             <td><input size="30" type="text" name="no_cek1" id="no_cek1"></td>
-                                             <td><input size="12" type="text" name="valuta1" id="valuta1"></td>
-                                             <td><input size="12" type="text" name="nominal1" id="nominal1"></td>
+                                             <td><input size="25%" type="text" name="bank1" id="bank1"></td>
+                                             <td><input size="25%" type="text" name="no_cek1" id="no_cek1"></td>
+                                             <td><input size="12%" type="text" name="valuta1" id="valuta1"></td>
+                                             <td><input size="12%" type="text" name="nominal1" id="nominal1"></td>
                                          </tr>
                                          <tr>
-                                             <td><input size="30" type="text" name="bank2" id="bank2"></td>
-                                             <td><input size="30" type="text" name="no_cek2" id="no_cek2"></td>
-                                             <td><input size="12" type="text" name="valuta2" id="valuta2"></td>
-                                             <td><input size="12" type="text" name="nominal2" id="nominal2"></td>
+                                             <td><input size="25%" type="text" name="bank2" id="bank2"></td>
+                                             <td><input size="25%" type="text" name="no_cek2" id="no_cek2"></td>
+                                             <td><input size="12%" type="text" name="valuta2" id="valuta2"></td>
+                                             <td><input size="12%" type="text" name="nominal2" id="nominal2"></td>
                                          </tr>
-                                     </div>
+                                     <!-- </div> -->
                                  </table>
                              </div>
                              <div class="text-man">
                                  <table border="0" width="100%">
                                      <tr>
-                                         <td class="text-man" style="vertical-align: text-top;"><b>Jumlah
+                                         <td class="text-man" style="vertical-align: text-top; "><b>Jumlah
                                                  setoran/transfer/kliring/inkaso</b><br>
                                              <div style="margin-top: -7px;"><i>deposit/transfer/clearing/collection
                                                      amount</i></div>
                                          </td>
                                          <div class="form-group">
-
                                              <td colspan=""><input size="46" type="text" name="stor" id="jml"></td>
                                          </div>
 
@@ -583,7 +580,6 @@ input[type=checkbox] {
                                              <div style="margin-top: -7px;"><i>in words</i></div>
                                          </td>
                                          <div class="form-group">
-
                                              <td colspan=""><input size="75" type="text" name="terbilang"
                                                      id="terbilang"></td>
                                          </div>
