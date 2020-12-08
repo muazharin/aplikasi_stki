@@ -14,7 +14,7 @@ class Mypdf
         $this->ci = &get_instance();
     }
 
-    public function generate($view, $data = array(), $filename = 'Laporan', $paper = 'F4', $orientation = 'potrait')
+    public function generate($view, $data = array(), $filename = 'Slip_bank', $paper = 'F4', $orientation = 'potrait')
     {
         $dompdf = new Dompdf();
         $html = $this->ci->load->view($view, $data, TRUE);
@@ -25,7 +25,10 @@ class Mypdf
 
         // Render the HTML as PDF
         $dompdf->render();
-        $dompdf->stream($filename . ".pdf", array("Attachment" => FALSE));
+        // $dompdf->stream($filename . ".pdf", array("Attachment" => FALSE));
+        $dompdf->stream($filename . ".pdf", array("Attachment" => false));
+
+        exit(0);
     }
 }
 
