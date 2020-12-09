@@ -6,7 +6,7 @@
              <div class="card-header">
                  <!-- <a href="<?= base_url("User/tambah") ?>" class="btn btn-success">Tambah</a> -->
                  <div class="card-title">
-                     <h4>Data Histori</h4>
+                     <h4>Data Cetak</h4>
                  </div>
              </div>
              <!-- /.card-header -->
@@ -15,7 +15,7 @@
 
                  <div class="row">
                      <div class="col-sm-12">
-                         <table class="table table-bordered table-striped dataTable dtr-inline" id="table1" role="grid" aria-describedby="example1_info">
+                         <table class="table table-bordered table-striped dataTable dtr-inline" id="cetak" role="grid" aria-describedby="example1_info">
                              <thead>
                                  <tr>
                                      <th style="text-align:center">No</th>
@@ -25,9 +25,9 @@
                                  </tr>
                              </thead>
                              <tbody>
-                                 <?php $no = 1;
-                                    if (isset($cetak)) {
-                                        foreach ($cetak as $data) { ?>
+                                 <!-- <?php $no = 1;
+                                        if (isset($cetak)) {
+                                            foreach ($cetak as $data) { ?>
                                          <tr>
                                              <td style="text-align:center"><?= $no++ ?></td>
                                              <td style="text-align:center"><?= $data->user_nama ?></td>
@@ -36,16 +36,12 @@
                                              <td style="text-align:center"><?= $data->jml_cetak ?></td>
                                          </tr>
                                  <?php }
-                                    } ?>
+                                        } ?> -->
                              </tbody>
 
                          </table>
                      </div>
                  </div>
-
-
-
-
              </div>
          </div>
      </div>
@@ -58,3 +54,21 @@
      </div>
      <!--/. container-fluid -->
  </section>
+
+ <script type="text/javascript">
+     $(document).ready(function() {
+         $('#cetak').DataTable({
+             "processing": true,
+             "serverSide": true,
+             "order": [],
+             "ajax": {
+                 "url": "<?php echo site_url('Histori/get_ajax') ?>",
+                 "type": "POST"
+             },
+             "columnDefs ": [{
+                 "targets": [0],
+                 "orderable": false,
+             }, ],
+         });
+     })
+ </script>

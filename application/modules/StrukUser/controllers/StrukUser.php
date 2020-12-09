@@ -17,6 +17,34 @@ class StrukUser extends CI_Controller
         }
     }
 
+    function get_ajax()
+    {
+        $list = $this->StrukUser_m->get_datatables();
+        $data = array();
+        $no = $_POST['start'];
+        foreach ($list as $d) {
+            $no++;
+            $row = array();
+            $row[] = $no . ".";
+            $row[] = date_format(date_create($d->tanggal), 'd-m-Y');
+            $row[] = $d->stor;
+            $row[] = $d->nama;
+            $row[] = $d->berita_transaksi;
+            // add html for action
+            $row[] = '<a href="' . site_url('StrukUser/edit/' . $d->id_struk) . '" class="btn btn-primary btn-xs"><i class="fa fa-edit" title="Edit"></i></a>
+                    <a href="' . site_url('StrukUser/tes/' . $d->id_struk) . '" class="btn btn-primary btn-xs" target="_blank" title="Print"><i class="fa fa-print"></i></a>
+                    <a href="' . site_url('StrukUser/delete/' . $d->id_struk) . '" onclick="return confirm(\'Yakin hapus data?\')"  class="btn btn-danger btn-xs" title="Hapus"><i class="fa fa-trash"></i></a>';
+            $data[] = $row;
+        }
+        $output = array(
+            "draw" => $_POST['draw'],
+            "recordsTotal" => $this->StrukUser_m->count_all(),
+            "recordsFiltered" => $this->StrukUser_m->count_filtered(),
+            "data" => $data,
+        );
+        // output to json format
+        echo json_encode($output);
+    }
 
     public function index()
     {

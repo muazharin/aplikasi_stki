@@ -11,6 +11,7 @@ class Histori extends CI_Controller
         parent::__construct();
 
         $this->load->model('Histori_m');
+        $this->load->model('Admin_m');
         if (!$this->session->userdata('userlog')) {
             $pemberitahuan = "<div class='alert alert-warning'>Anda harus login dulu </div>";
             $this->session->set_flashdata('pesan', $pemberitahuan);
@@ -45,6 +46,32 @@ class Histori extends CI_Controller
         echo json_encode($output);
     }
 
+    function get_cetak()
+    {
+        $list = $this->Admin_m->get_datatables();
+        $data = array();
+        $no = $_POST['start'];
+        foreach ($list as $d) {
+            $no++;
+            $row = array();
+            $row[] = $no . ".";
+            $row[] = date_format(date_create($d->tanggal_cetak), 'd-m-Y');
+            $row[] = $d->user_nama;
+            $row[] = $d->jml_cetak;
+            // $row[] = $d->ket;
+            // add html for action
+
+            $data[] = $row;
+        }
+        $output = array(
+            "draw" => $_POST['draw'],
+            "recordsTotal" => $this->Admin_m->count_all(),
+            "recordsFiltered" => $this->Admin_m->count_filtered(),
+            "data" => $data,
+        );
+        // output to json format
+        echo json_encode($output);
+    }
 
     public function index()
     {
@@ -59,7 +86,7 @@ class Histori extends CI_Controller
     {
         $data = [
             'tittle'          => 'Cetak',
-            'cetak'              => $this->Histori_m->getcetak()
+            // 'cetak'              => $this->Histori_m->getcetak()
         ];
         $this->template->load('template', 'v_cetak', $data);
     }

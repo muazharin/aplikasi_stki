@@ -81,13 +81,13 @@
                                             <label for="inputName" class="col-sm-2 col-form-label">Password Baru</label>
                                             <div class="col-sm-8">
                                                 <input type="hidden" class="form-control" name="id" value="<?= $data->user_id ?>">
-                                                <input type="password" class="form-control" id="inputName" name="pw1" placeholder="Password">
+                                                <input type="password" class="form-control" id="inputName" name="pw1" placeholder="Password" autocomplete="off">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="inputEmail" class="col-sm-2 col-form-label">Konfirmasi Password</label>
                                             <div class="col-sm-8">
-                                                <input type="password" class="form-control" id="inputEmail" name="pw2" placeholder="Konfirmasi Password">
+                                                <input type="password" class="form-control" id="inputEmail" name="pw2" placeholder="Konfirmasi Password" autocomplete="off">
                                             </div>
                                         </div>
 

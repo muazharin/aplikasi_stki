@@ -102,7 +102,7 @@
             </div>
             <!-- /.sidebar -->
         </aside>
-
+        <script src="<?php echo base_url() ?>assets/plugins/jquery/jquery.min.js"></script>
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
@@ -147,7 +147,7 @@
 
     <!-- REQUIRED SCRIPTS -->
     <!-- jQuery -->
-    <script src="<?php echo base_url() ?>assets/plugins/jquery/jquery.min.js"></script>
+
     <!-- Bootstrap -->
     <script src="<?php echo base_url() ?>assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- overlayScrollbars -->
@@ -176,7 +176,21 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $('#table1').DataTable();
-        })
+        });
+
+        $(function() {
+
+            var url = window.location.pathname,
+                urlRegExp = new RegExp(url.replace(/\/$/, '') + "$"); // create regexp to match current url pathname and remove trailing slash if present as it could collide with the link in navigation in case trailing slash wasn't present there
+            // now grab every link from the navigation
+            $('.nav-item a').each(function() {
+                // and test its normalized href against the url pathname regexp
+                if (urlRegExp.test(this.href.replace(/\/$/, ''))) {
+                    $(this).addClass('active');
+                }
+            });
+
+        });
     </script>
 
     <script type="text/javascript">
