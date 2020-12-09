@@ -15,11 +15,41 @@ class Struk extends CI_Controller
         }
     }
 
+    function get_ajax()
+    {
+        $list = $this->Struk_m->get_datatables();
+        $data = array();
+        $no = $_POST['start'];
+        foreach ($list as $d) {
+            $no++;
+            $row = array();
+            $row[] = $no . ".";
+            $row[] = date_format(date_create($d->tanggal), 'd-m-Y');
+            $row[] = $d->stor;
+            $row[] = $d->nama;
+            $row[] = $d->berita_transaksi;
+            // add html for action
+            $row[] = '<a href="' . site_url('Struk/edit/' . $d->id_struk) . '" class="btn btn-primary btn-xs"><i class="fa fa-edit" title="Edit"></i></a>
+                    <a href="' . site_url('Struk/tes/' . $d->id_struk) . '" class="btn btn-primary btn-xs" target="_blank" title="Print"><i class="fa fa-print"></i></a>
+                    <a href="' . site_url('Struk/delete/' . $d->id_struk) . '" onclick="return confirm(\'Yakin hapus data?\')"  class="btn btn-danger btn-xs" title="Hapus"><i class="fa fa-trash"></i></a>';
+            $data[] = $row;
+        }
+        $output = array(
+            "draw" => $_POST['draw'],
+            "recordsTotal" => $this->Struk_m->count_all(),
+            "recordsFiltered" => $this->Struk_m->count_filtered(),
+            "data" => $data,
+        );
+        // output to json format
+        echo json_encode($output);
+    }
+
+
     public function index()
     {
         $data = [
-            'tittle'          => 'Data Slip',
-            'struk' => $this->Struk_m->get_struk()
+            'tittle'          => 'Data Slip'
+            // 'struk' => $this->Struk_m->get_struk()
         ];
         $this->template->load('template', 'v_struk', $data);
     }
@@ -37,17 +67,32 @@ class Struk extends CI_Controller
     {
         $tgl = $this->input->post('tgl');
         $idusr = $this->input->post('iduser');
-        $transaksi = implode(',', $this->input->post('transaksi', TRUE));
-        // $transaksi = $this->input->post('transaksi');
+        $transaksi = "";
+        if (count($array = $this->input->post('transaksi', TRUE))) {
+            $transaksi = implode(",", $array);
+        }
+        // $transaksi = implode(',', $this->input->post('transaksi', TRUE));
         $validasi = $this->input->post('validasi');
-        $penerima = implode(',', $this->input->post('penerima', TRUE));
-        $penduduk = implode(',', $this->input->post('penduduk', TRUE));
+        $penerima = "";
+        if (count($array = $this->input->post('penerima', TRUE))) {
+            $penerima = implode(",", $array);
+        }
+        $penduduk = "";
+        if (count($array = $this->input->post('penduduk', TRUE))) {
+            $penduduk = implode(",", $array);
+        }
+        // $penerima = implode(',', $this->input->post('penerima', TRUE));
+        // $penduduk = implode(',', $this->input->post('penduduk', TRUE));
         $nama = $this->input->post('nama');
         $no_rek = $this->input->post('no_rek');
         $nama_bank = $this->input->post('nama_bank');
         $alamat = $this->input->post('address');
         $jn = $this->input->post('jn');
-        $tujuan = implode(',', $this->input->post('tujuan', TRUE));
+        $tujuan = "";
+        if (count($array = $this->input->post('tujuan', TRUE))) {
+            $tujuan = implode(",", $array);
+        }
+        // $tujuan = implode(',', $this->input->post('tujuan', TRUE));
         $brita = $this->input->post('brita');
         $jml_trans = $this->input->post('jml_trans');
         $Komisi = $this->input->post('komisi');
@@ -57,13 +102,29 @@ class Struk extends CI_Controller
         $rate = $this->input->post('rate');
         $total = $this->input->post('total');
         $ttd = $this->input->post('ttd');
-        $pengirim = implode(',', $this->input->post('pengirim', TRUE));
+        $pengirim = "";
+        if (count($array = $this->input->post('pengirim', TRUE))) {
+            $pengirim = implode(",", $array);
+        }
+        // $pengirim = implode(',', $this->input->post('pengirim', TRUE));
         $nik = $this->input->post('nik');
-        $info = implode(',', $this->input->post('info', TRUE));
-        $status = implode(',', $this->input->post('status', TRUE));
+        $info = "";
+        if (count($array = $this->input->post('info', TRUE))) {
+            $info = implode(",", $array);
+        }
+        $status = "";
+        if (count($array = $this->input->post('status', TRUE))) {
+            $status = implode(",", $array);
+        }
+        // $info = implode(',', $this->input->post('info', TRUE));
+        // $status = implode(',', $this->input->post('status', TRUE));
         $nama2 = $this->input->post('nama2');
         $alamat2 = $this->input->post('alamat2');
-        $metode = implode(',', $this->input->post('metode', TRUE));
+        $metode = "";
+        if (count($array = $this->input->post('metode', TRUE))) {
+            $metode = implode(",", $array);
+        }
+        // $metode = implode(',', $this->input->post('metode', TRUE));
         $isi = $this->input->post('isi');
         $bank1 = $this->input->post('bank1');
         $bank2 = $this->input->post('bank2');
@@ -75,9 +136,21 @@ class Struk extends CI_Controller
         $nominal2 = $this->input->post('nominal2');
         $stor = $this->input->post('stor');
         $terbilang = $this->input->post('terbilang');
-        $sumber = implode(',', $this->input->post('sumber', TRUE));
-        $biaya_trans = implode(',', $this->input->post('biaya_trans', TRUE));
+        $sumber = "";
+        if (count($array = $this->input->post('sumber', TRUE))) {
+            $sumber = implode(",", $array);
+        }
+        $biaya_trans = "";
+        if (count($array = $this->input->post('biaya_trans', TRUE))) {
+            $biaya_trans = implode(",", $array);
+        }
+        // $sumber = implode(',', $this->input->post('sumber', TRUE));
+        // $biaya_trans = implode(',', $this->input->post('biaya_trans', TRUE));
         $debet = $this->input->post('debet');
+        $biaya_bank = "";
+        if (count($array = $this->input->post('biaya_bank', TRUE))) {
+            $biaya_bank = implode(",", $array);
+        }
         $biaya_bank = implode(',', $this->input->post('biaya_bank', TRUE));
         $lain = $this->input->post('lain');
         $nama3 = $this->input->post('nama3');
@@ -163,17 +236,32 @@ class Struk extends CI_Controller
     {
         $id = $this->input->post('id');
         $tgl = $this->input->post('tgl');
-        $transaksi = implode(',', $this->input->post('transaksi', TRUE));
-        // $transaksi = $this->input->post('transaksi');
+        $transaksi = "";
+        if (count($array = $this->input->post('transaksi', TRUE))) {
+            $transaksi = implode(",", $array);
+        }
+        // $transaksi = implode(',', $this->input->post('transaksi', TRUE));
         $validasi = $this->input->post('validasi');
-        $penerima = implode(',', $this->input->post('penerima', TRUE));
-        $penduduk = implode(',', $this->input->post('penduduk', TRUE));
+        $penerima = "";
+        if (count($array = $this->input->post('penerima', TRUE))) {
+            $penerima = implode(",", $array);
+        }
+        $penduduk = "";
+        if (count($array = $this->input->post('penduduk', TRUE))) {
+            $penduduk = implode(",", $array);
+        }
+        // $penerima = implode(',', $this->input->post('penerima', TRUE));
+        // $penduduk = implode(',', $this->input->post('penduduk', TRUE));
         $nama = $this->input->post('nama');
         $no_rek = $this->input->post('no_rek');
         $nama_bank = $this->input->post('nama_bank');
         $alamat = $this->input->post('address');
         $jn = $this->input->post('jn');
-        $tujuan = implode(',', $this->input->post('tujuan', TRUE));
+        $tujuan = "";
+        if (count($array = $this->input->post('tujuan', TRUE))) {
+            $tujuan = implode(",", $array);
+        }
+        // $tujuan = implode(',', $this->input->post('tujuan', TRUE));
         $brita = $this->input->post('brita');
         $jml_trans = $this->input->post('jml_trans');
         $Komisi = $this->input->post('komisi');
@@ -183,13 +271,29 @@ class Struk extends CI_Controller
         $rate = $this->input->post('rate');
         $total = $this->input->post('total');
         $ttd = $this->input->post('ttd');
-        $pengirim = implode(',', $this->input->post('pengirim', TRUE));
+        $pengirim = "";
+        if (count($array = $this->input->post('pengirim', TRUE))) {
+            $pengirim = implode(",", $array);
+        }
+        // $pengirim = implode(',', $this->input->post('pengirim', TRUE));
         $nik = $this->input->post('nik');
-        $info = implode(',', $this->input->post('info', TRUE));
-        $status = implode(',', $this->input->post('status', TRUE));
+        $info = "";
+        if (count($array = $this->input->post('info', TRUE))) {
+            $info = implode(",", $array);
+        }
+        $status = "";
+        if (count($array = $this->input->post('status', TRUE))) {
+            $status = implode(",", $array);
+        }
+        // $info = implode(',', $this->input->post('info', TRUE));
+        // $status = implode(',', $this->input->post('status', TRUE));
         $nama2 = $this->input->post('nama2');
         $alamat2 = $this->input->post('alamat2');
-        $metode = implode(',', $this->input->post('metode', TRUE));
+        $metode = "";
+        if (count($array = $this->input->post('metode', TRUE))) {
+            $metode = implode(",", $array);
+        }
+        // $metode = implode(',', $this->input->post('metode', TRUE));
         $isi = $this->input->post('isi');
         $bank1 = $this->input->post('bank1');
         $bank2 = $this->input->post('bank2');
@@ -201,9 +305,21 @@ class Struk extends CI_Controller
         $nominal2 = $this->input->post('nominal2');
         $stor = $this->input->post('stor');
         $terbilang = $this->input->post('terbilang');
-        $sumber = implode(',', $this->input->post('sumber', TRUE));
-        $biaya_trans = implode(',', $this->input->post('biaya_trans', TRUE));
-        $debet = $this->input->post('debit');
+        $sumber = "";
+        if (count($array = $this->input->post('sumber', TRUE))) {
+            $sumber = implode(",", $array);
+        }
+        $biaya_trans = "";
+        if (count($array = $this->input->post('biaya_trans', TRUE))) {
+            $biaya_trans = implode(",", $array);
+        }
+        // $sumber = implode(',', $this->input->post('sumber', TRUE));
+        // $biaya_trans = implode(',', $this->input->post('biaya_trans', TRUE));
+        $debet = $this->input->post('debet');
+        $biaya_bank = "";
+        if (count($array = $this->input->post('biaya_bank', TRUE))) {
+            $biaya_bank = implode(",", $array);
+        }
         $biaya_bank = implode(',', $this->input->post('biaya_bank', TRUE));
         $lain = $this->input->post('lain');
         $nama3 = $this->input->post('nama3');
@@ -288,7 +404,7 @@ class Struk extends CI_Controller
             // 'struk' => $this->Struk_m->getprint()
         ];
         // $this->mypdf->generate('v_dompdf', $data);
-        $this->mypdf->generate('tes', $data);
+        $this->mypdf->generate('v_print', $data);
         // var_dump($data);
     }
 }

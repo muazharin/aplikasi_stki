@@ -12,7 +12,7 @@
 
                  <div class="row">
                      <div class="col-sm-12">
-                         <table class="table table-bordered table-striped dataTable dtr-inline" id="table1" role="grid" aria-describedby="example1_info">
+                         <table class="table table-bordered table-striped dataTable dtr-inline" id="table" role="grid" aria-describedby="example1_info">
                              <thead>
                                  <tr>
                                      <th style="text-align:center">No</th>
@@ -24,9 +24,9 @@
                                  </tr>
                              </thead>
                              <tbody>
-                                 <?php $no = 1;
-                                    if (isset($struk)) {
-                                        foreach ($struk as $data) { ?>
+                                 <!-- <?php $no = 1;
+                                        if (isset($struk)) {
+                                            foreach ($struk as $data) { ?>
                                          <tr>
                                              <td style="text-align:center"><?= $no++ ?></td>
                                              <td style="text-align:center"><?= date_format(date_create($data->tanggal), 'd-m-Y'); ?></td>
@@ -49,7 +49,7 @@
                                              </td>
                                          </tr>
                                  <?php }
-                                    } ?>
+                                        } ?> -->
                              </tbody>
 
                          </table>
@@ -71,3 +71,21 @@
      </div>
      <!--/. container-fluid -->
  </section>
+
+ <script type="text/javascript">
+     $(document).ready(function() {
+         $('#table').DataTable({
+             "processing": true,
+             "serverSide": true,
+             "order": [],
+             "ajax": {
+                 "url": "<?php echo site_url('Struk/get_ajax') ?>",
+                 "type": "POST"
+             },
+             "columnDefs ": [{
+                 "targets": [0],
+                 "orderable": false,
+             }, ],
+         });
+     })
+ </script>

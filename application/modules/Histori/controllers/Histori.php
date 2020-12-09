@@ -18,6 +18,33 @@ class Histori extends CI_Controller
         }
     }
 
+    function get_ajax()
+    {
+        $list = $this->Histori_m->get_datatables();
+        $data = array();
+        $no = $_POST['start'];
+        foreach ($list as $d) {
+            $no++;
+            $row = array();
+            $row[] = $no . ".";
+            $row[] = $d->user_nama;
+            $row[] = date_format(date_create($d->tanggal), 'd-m-Y');
+            $row[] = $d->rupiah;
+            $row[] = $d->ket;
+            // add html for action
+
+            $data[] = $row;
+        }
+        $output = array(
+            "draw" => $_POST['draw'],
+            "recordsTotal" => $this->Histori_m->count_all(),
+            "recordsFiltered" => $this->Histori_m->count_filtered(),
+            "data" => $data,
+        );
+        // output to json format
+        echo json_encode($output);
+    }
+
 
     public function index()
     {

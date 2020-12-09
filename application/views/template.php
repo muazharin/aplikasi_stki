@@ -144,6 +144,8 @@ if ($this->session->userdata('userlog'))     // mencegah akses langsung tanpa lo
             <!-- /.sidebar -->
         </aside>
 
+        <script src="<?php echo base_url() ?>assets/plugins/jquery/jquery.min.js"></script>
+
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
@@ -167,6 +169,7 @@ if ($this->session->userdata('userlog'))     // mencegah akses langsung tanpa lo
 
             <!-- /.content -->
             <?php echo $contents ?>
+
         </div>
         <!-- /.content-wrapper -->
 
@@ -188,7 +191,7 @@ if ($this->session->userdata('userlog'))     // mencegah akses langsung tanpa lo
 
     <!-- REQUIRED SCRIPTS -->
     <!-- jQuery -->
-    <script src="<?php echo base_url() ?>assets/plugins/jquery/jquery.min.js"></script>
+
     <!-- Bootstrap -->
     <script src="<?php echo base_url() ?>assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- overlayScrollbars -->
@@ -218,6 +221,8 @@ if ($this->session->userdata('userlog'))     // mencegah akses langsung tanpa lo
             $('#table1').DataTable();
         })
     </script>
+
+
 
     <script type="text/javascript">
         function inputTerbilang() {

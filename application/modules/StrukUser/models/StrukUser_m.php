@@ -5,7 +5,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class StrukUser_m extends CI_Model
 {
 
-    function get_struk()
+
+    public function get_struk()
     {
         $this->db->select('*');
         $this->db->from('tb_struk');

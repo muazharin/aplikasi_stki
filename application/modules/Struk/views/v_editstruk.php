@@ -62,7 +62,7 @@
                              <div class="col-6">
                                  <div class="form-group">
 
-                                     <div style="margin-bottom:-7px;"><b class="span_text text-man">kepada</b> to <b class="span_text text-man"> PT Bank Mandiri (Persero) Tbk</b><span style="float: right;" class="text-man"><b>tanggal</b> <i>date</i><input type="date" class="" name="tgl" value="<?= date_format(date_create($data->tanggal), 'Y-m-d'); ?>" id="tgl"></span>
+                                     <div style="margin-bottom:-7px;"><b class="span_text text-man">kepada</b> to <b class="span_text text-man"> PT Bank Mandiri (Persero) Tbk</b><span style="float: right;" class="text-man"><b>tanggal</b> <i>date</i><input type="date" class="" name="tgl" value="<?= date_format(date_create($data->tanggal), 'Y-m-d'); ?>" id="tgl" required></span>
                                      </div>
                                  </div>
                                  <span class="text-man ">harap dilakukan transaksi berikut <i>please do this
@@ -181,7 +181,7 @@
                                              </td>
                                              <div class="form-group">
 
-                                                 <td colspan="6"><input size="55" type="text" name="nama" value="<?= $data->nama ?>" id="nama"></td>
+                                                 <td colspan="6"><input size="55" type="text" name="nama" value="<?= $data->nama ?>" id="nama" required></td>
                                                  <input type="hidden" value="<?= $data->id_struk ?>" name="id" id=""></td>
                                              </div>
                                          </tr>
@@ -192,7 +192,7 @@
                                              </td>
                                              <div class="form-group">
 
-                                                 <td colspan="6"><input size="55" type="text" name="no_rek" value="<?= $data->no_rek ?>" id="no_rek"></td>
+                                                 <td colspan="6"><input size="55" type="text" name="no_rek" value="<?= $data->no_rek ?>" id="no_rek" required></td>
                                              </div>
                                          </tr>
                                          <tr>
@@ -351,7 +351,7 @@
 
                                              <tr>
                                                  <td></td>
-                                                 <td style="text-align: center;"><br><br><b>Nama</b><i> name </i><input type="text" size="26" name="ttd" value="<?= $data->ttd ?>" id="nama_pemohon"></td>
+                                                 <td style="text-align: center;"><br><br><b>Nama</b><i> name </i><input type="text" size="26" name="ttd" value="<?= $data->ttd ?>" id="nama_pemohon" required></td>
                                              </tr>
                                          </div>
                                      </table>
@@ -447,7 +447,7 @@
                                              </td>
                                              <div class="form-group">
 
-                                                 <td colspan="6"><input size="62" type="text" name="nama2" value="<?= $data->nama2 ?>" id="name"></td>
+                                                 <td colspan="6"><input size="62" type="text" name="nama2" value="<?= $data->nama2 ?>" id="name" required></td>
                                              </div>
                                          </tr>
                                          <tr>
@@ -458,7 +458,7 @@
                                              </td>
                                              <div class="form-group">
 
-                                                 <td colspan="6"><input size="62" type="text" name="alamat2" value="<?= $data->alamat2 ?>" id="alamat"></td>
+                                                 <td colspan="6"><input size="62" type="text" name="alamat2" value="<?= $data->alamat2 ?>" id="alamat" required></td>
                                              </div>
                                          </tr>
                                      </table>
@@ -535,7 +535,7 @@
                                              </td>
                                              <div class="form-group">
 
-                                                 <td colspan=""><input size="46" type="text" value="<?= $data->stor ?>" name="stor" id="terbilang-input" class="mata-uang" onkeyup="inputTerbilang();" autocomplete="off"></td>
+                                                 <td colspan=""><input size="46" type="text" value="<?= $data->stor ?>" name="stor" id="terbilang-input" class="mata-uang" onkeyup="inputTerbilang();" autocomplete="off" required></td>
                                              </div>
 
                                          </tr>
@@ -546,7 +546,7 @@
                                              </td>
                                              <div class="form-group">
 
-                                                 <td colspan=""><input size="75" type="text" value="<?= $data->terbilang ?>" name="terbilang" id="terbilang-output"></td>
+                                                 <td colspan=""><input size="75" type="text" value="<?= $data->terbilang ?>" name="terbilang" id="terbilang-output" required></td>
                                              </div>
                                          </tr>
                                      </table>

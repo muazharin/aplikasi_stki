@@ -17,6 +17,7 @@ class StrukUser extends CI_Controller
         }
     }
 
+
     public function index()
     {
         $data = [
