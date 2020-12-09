@@ -19,6 +19,21 @@ class Histori_m extends CI_Model
             return $query->result();
         }
     }
+
+    function getcetak()
+    {
+        $this->db->select('*');
+        $this->db->from('tb_cetak');
+        $this->db->join('tbuser', 'tbuser.user_id=tb_cetak.id_user', 'inner');
+        // $this->db->join('tbalat', 'tbalat.id_devices=histori.id_devices', 'inner');
+        $this->db->order_by('id_cetak', 'desc');
+        // $this->db->limit(20);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        }
+    }
 }
 
 /* End of file Histori_m.php */

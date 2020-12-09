@@ -7,7 +7,7 @@ class Home extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('Admin/Admin_m');
+        $this->load->model('Admin_m');
         // $this->load->model('Struk_m');
 
         if (!$this->session->userdata('userlog')) {

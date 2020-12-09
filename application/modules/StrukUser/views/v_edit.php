@@ -536,7 +536,7 @@
                                              </td>
                                              <div class="form-group">
 
-                                                 <td colspan=""><input size="46" type="text" value="<?= $data->stor ?>" name="stor" id="jml"></td>
+                                                 <td colspan=""><input size="46" type="text" value="<?= $data->stor ?>" name="stor" id="terbilang-input" class="mata-uang" onkeyup="inputTerbilang();" autocomplete="off" required></td>
                                              </div>
 
                                          </tr>
@@ -547,7 +547,7 @@
                                              </td>
                                              <div class="form-group">
 
-                                                 <td colspan=""><input size="75" type="text" value="<?= $data->terbilang ?>" name="terbilang" id="terbilang"></td>
+                                                 <td colspan=""><input size="75" type="text" value="<?= $data->terbilang ?>" name="terbilang" id="terbilang-output"></td>
                                              </div>
                                          </tr>
                                      </table>

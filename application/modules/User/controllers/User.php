@@ -9,7 +9,7 @@ class User extends CI_Controller
         parent::__construct();
         $this->load->model('User_m');
         $this->load->library('bcrypt');
-        $this->load->model('Admin/Admin_m');
+        $this->load->model('Admin_m');
         if (!$this->session->userdata('userlog')) {
             $pemberitahuan = "<div class='alert alert-warning'>Anda harus login dulu </div>";
             $this->session->set_flashdata('pesan', $pemberitahuan);

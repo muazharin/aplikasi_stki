@@ -33,6 +33,12 @@ class StrukUser_m extends CI_Model
         return TRUE;
     }
 
+    function add_cetak($data)
+    {
+        $this->db->insert('tb_cetak', $data);
+        return TRUE;
+    }
+
     function add_struk($data)
     {
         $this->db->insert('tb_struk', $data);

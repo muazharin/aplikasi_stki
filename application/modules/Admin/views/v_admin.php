@@ -7,8 +7,7 @@
     <title>Aplikasi STKI | Log in </title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/plugins/fontawesome-free/css/all.min.css">
     <!-- icheck bootstrap -->
@@ -22,15 +21,14 @@
         <!-- /.login-logo -->
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
-                <a href="index2.html" class="h1"><b>Login</b>Admin</a>
+                <a href="<?= base_url('Admin') ?>" class="h1"><b>Login</b>Admin</a>
             </div>
             <div class="card-body">
                 <p class="login-box-msg"> <?php echo $this->session->flashdata('pesan'); ?></p>
 
                 <form action="<?= base_url('Admin/proses') ?>" method="post">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" name="username" placeholder="Username" required
-                            autofocus>
+                        <input type="text" class="form-control" name="username" placeholder="Username" required autofocus>
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>

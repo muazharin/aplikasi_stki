@@ -13,7 +13,7 @@
              </div>
              <!-- /.card-header -->
              <!-- form start -->
-             <form action="<?php echo base_url('User/tambah_post') ?>" id="form" method="post" enctype="multipart/form-data">
+             <form action="<?php echo base_url('User/edit_post') ?>" id="form" method="post" enctype="multipart/form-data">
                <div class="card-body">
                  <div class="form-group">
                    <label for="exampleInputEmail1">Nama</label>

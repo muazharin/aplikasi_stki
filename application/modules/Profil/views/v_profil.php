@@ -2,9 +2,8 @@
     <?php echo $this->session->flashdata('pesan'); ?>
     <div class="container-fluid">
         <div class="row">
-            <?php foreach ($admin as $data) : ?>
+            <?php foreach ($isi as $data) : ?>
                 <div class="col-md-3">
-                    <!-- <input type="hidden" value="<?= $data->id_admin ?>"> -->
                     <!-- Profile Image -->
                     <div class="card card-primary card-outline">
                         <div class="card-body box-profile">
@@ -12,13 +11,13 @@
                                 <img class="profile-user-img img-fluid img-circle" src="<?php echo base_url() ?>assets/dist/img/avatar5.png" alt="User profile picture">
                             </div>
 
-                            <h3 class="profile-username text-center"><?= $data->nama ?></h3>
+                            <h3 class="profile-username text-center"><?= $data->user_nama ?></h3>
 
                             <!-- <p class="text-muted text-center">Software Engineer</p> -->
 
                             <ul class="list-group list-group-unbordered mb-3">
                                 <li class="list-group-item">
-                                    <b>Nama</b> <a class="float-right"><?= $data->nama ?></a>
+                                    <b>Nama</b> <a class="float-right"><?= $data->user_nama ?></a>
                                 </li>
                                 <li class="list-group-item">
                                     <b>Username</b> <a class="float-right"><?= $data->username ?></a>
@@ -49,12 +48,12 @@
                         <div class="card-body">
                             <div class="tab-content">
                                 <div class="active tab-pane" id="activity">
-                                    <form class="form-horizontal" action="<?php echo base_url('Admin/edit_post') ?>" id="form" method="post">
+                                    <form class="form-horizontal" action="<?php echo base_url('Profil/edit_post') ?>" id="form" method="post">
                                         <div class="form-group row">
                                             <label for="inputName" class="col-sm-2 col-form-label">Nama</label>
                                             <div class="col-sm-8">
-                                                <input type="hidden" class="form-control" name="id" value="<?= $data->id_admin ?>">
-                                                <input type="text" class="form-control" name="nama" value="<?= $data->nama ?>">
+                                                <input type="hidden" class="form-control" name="id" value="<?= $data->user_id ?>">
+                                                <input type="text" class="form-control" name="nama" value="<?= $data->user_nama ?>">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -77,11 +76,11 @@
                                 <!-- /.tab-pane -->
 
                                 <div class="tab-pane" id="settings">
-                                    <form class="form-horizontal" action="<?php echo base_url('Admin/ubahPW') ?>" id="form" method="post">
+                                    <form class="form-horizontal" action="<?php echo base_url('Profil/ubahPW') ?>" id="form" method="post">
                                         <div class="form-group row">
                                             <label for="inputName" class="col-sm-2 col-form-label">Password Baru</label>
                                             <div class="col-sm-8">
-                                                <input type="hidden" class="form-control" name="id" value="<?= $data->id_admin ?>">
+                                                <input type="hidden" class="form-control" name="id" value="<?= $data->user_id ?>">
                                                 <input type="password" class="form-control" id="inputName" name="pw1" placeholder="Password">
                                             </div>
                                         </div>

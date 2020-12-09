@@ -16,10 +16,10 @@
                              <thead>
                                  <tr>
                                      <th style="text-align:center">No</th>
-                                     <th style="text-align:center">Tanggal Input</th>
-                                     <th style="text-align:center">Nama User</th>
                                      <th style="text-align:center">Tanggal Slip</th>
-                                     <th style="text-align:center">Transaksi</th>
+                                     <th style="text-align:center">Rupiah</th>
+                                     <th style="text-align:center">Nama Penerima</th>
+                                     <th style="text-align:center">Berita Transaksi</th>
                                      <th style="text-align:center">#</th>
                                  </tr>
                              </thead>
@@ -29,10 +29,11 @@
                                         foreach ($struk as $data) { ?>
                                          <tr>
                                              <td style="text-align:center"><?= $no++ ?></td>
-                                             <td style="text-align:center"><?= date_format(date_create($data->tanggal_input), 'd-m-Y'); ?></td>
-                                             <td style="text-align:center"><?= $data->user_nama ?></td>
                                              <td style="text-align:center"><?= date_format(date_create($data->tanggal), 'd-m-Y'); ?></td>
                                              <td style="text-align:center"><?= $data->stor ?></td>
+                                             <td style="text-align:center"><?= $data->nama ?></td>
+                                             <td style="text-align:center"><?= $data->berita_transaksi ?></td>
+
                                              <td style="text-align:center">
                                                  <form action="<?= base_url() ?>Struk/delete/<?= $data->id_struk ?>" method="post">
                                                      <a href="<?= base_url() ?>Struk/edit/<?= $data->id_struk ?>" class="btn btn-primary " title="Edit">

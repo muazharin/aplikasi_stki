@@ -27,6 +27,15 @@ class Histori extends CI_Controller
         ];
         $this->template->load('template', 'v_histori', $data);
     }
+
+    public function cetak()
+    {
+        $data = [
+            'tittle'          => 'Cetak',
+            'cetak'              => $this->Histori_m->getcetak()
+        ];
+        $this->template->load('template', 'v_cetak', $data);
+    }
 }
 
 /* End of file Controllername.php */

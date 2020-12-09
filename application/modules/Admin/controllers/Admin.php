@@ -146,4 +146,25 @@ class Admin extends CI_Controller
 
         redirect(base_url('Admin/data'));
     }
+
+    public function ubahPW()
+    {
+        $id = $this->input->post('id');
+        $pw1 = $this->input->post('pw1');
+        $pw2 = $this->input->post('pw2');
+        $hash = $this->bcrypt->hash_password($pw2);
+        $data = array(
+            'password' => $hash
+        );
+
+        if ($pw1 === $pw2) {
+            $this->Admin_m->update_admin($id, $data);
+            $this->session->set_flashdata("pesan", "<div class=\"alert alert-success alert-dismissible show fade\">
+                        <div class=\"alert-body\"><button class=\"close\" data-dismiss=\"alert\"><span>×</span></button>Password berhasil diganti</div></div>");
+        } else {
+            $this->session->set_flashdata("pesan", "<div class=\"alert alert-danger alert-dismissible show fade\">
+                        <div class=\"alert-body\"><button class=\"close\" data-dismiss=\"alert\"><span>×</span></button>Password tidak sama !</div></div>");
+        }
+        redirect(base_url('Admin/data'));
+    }
 }
