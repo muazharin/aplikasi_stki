@@ -8,7 +8,7 @@
                     <div class="card card-primary card-outline">
                         <div class="card-body box-profile">
                             <div class="text-center">
-                                <img class="profile-user-img img-fluid img-circle" src="<?php echo base_url() ?>assets/dist/img/avatar5.png" alt="User profile picture">
+                                <img class="profile-user-img img-fluid img-circle" src="<?php echo base_url() ?>assets/dist/img/avatar3.png" alt="User profile picture">
                             </div>
 
                             <h3 class="profile-username text-center"><?= $data->user_nama ?></h3>
@@ -79,14 +79,14 @@
                                     <form class="form-horizontal" action="<?php echo base_url('Profil/ubahPW') ?>" id="form" method="post">
                                         <div class="form-group row">
                                             <label for="inputName" class="col-sm-2 col-form-label">Password Baru</label>
-                                            <div class="col-sm-8">
+                                            <div class="col-sm-6">
                                                 <input type="hidden" class="form-control" name="id" value="<?= $data->user_id ?>">
-                                                <input type="password" class="form-control" id="inputName" name="pw1" placeholder="Password" autocomplete="off">
+                                                <input type="password" class="form-control" id="inputName" name="pw1" placeholder="Password Baru" autocomplete="off">
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="inputEmail" class="col-sm-2 col-form-label">Konfirmasi Password</label>
-                                            <div class="col-sm-8">
+                                            <label for="inputEmail" class="col-sm-2 col-form-label">Konfirmasi</label>
+                                            <div class="col-sm-6">
                                                 <input type="password" class="form-control" id="inputEmail" name="pw2" placeholder="Konfirmasi Password" autocomplete="off">
                                             </div>
                                         </div>

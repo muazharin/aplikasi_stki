@@ -6,7 +6,7 @@ class Struk_m extends CI_Model
 {
 
     var $table = 'tb_struk'; //nama tabel dari database
-    var $column_order = array(null, 'tanggal', 'nama', 'stor', 'berita_transaksi'); //field yang ada di table user
+    var $column_order = array(null, 'user_id', 'tanggal', 'nama', 'stor', 'berita_transaksi'); //field yang ada di table user
     var $column_search = array('tanggal', 'nama', 'berita_transaksi'); //field yang diizin untuk pencarian 
     var $order = array('id_struk' => 'desc'); // default order 
 
@@ -19,8 +19,9 @@ class Struk_m extends CI_Model
     private function _get_datatables_query()
     {
 
-        $this->db->from($this->table);
-
+        $this->db->select('*');
+        $this->db->from('tb_struk');
+        $this->db->join('tbuser', 'tbuser.user_id=tb_struk.user_id', 'inner');
         $i = 0;
 
         foreach ($this->column_search as $item) // looping awal

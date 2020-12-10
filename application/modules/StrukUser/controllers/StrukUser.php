@@ -32,7 +32,7 @@ class StrukUser extends CI_Controller
             $row[] = $d->berita_transaksi;
             // add html for action
             $row[] = '<a href="' . site_url('StrukUser/edit/' . $d->id_struk) . '" class="btn btn-primary btn-xs"><i class="fa fa-edit" title="Edit"></i></a>
-                    <a href="' . site_url('StrukUser/tes/' . $d->id_struk) . '" class="btn btn-primary btn-xs" target="_blank" title="Print"><i class="fa fa-print"></i></a>
+                    <a href="' . site_url('StrukUser/tes/' . $d->id_struk . '/' . $d->user_id)  . '" class="btn btn-primary btn-xs" target="_blank" title="Print"><i class="fa fa-print"></i></a>
                     <a href="' . site_url('StrukUser/delete/' . $d->id_struk) . '" onclick="return confirm(\'Yakin hapus data?\')"  class="btn btn-danger btn-xs" title="Hapus"><i class="fa fa-trash"></i></a>';
             $data[] = $row;
         }

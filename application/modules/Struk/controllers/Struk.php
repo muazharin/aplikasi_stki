@@ -24,6 +24,7 @@ class Struk extends CI_Controller
             $no++;
             $row = array();
             $row[] = $no . ".";
+            $row[] = $d->user_nama;
             $row[] = date_format(date_create($d->tanggal), 'd-m-Y');
             $row[] = $d->stor;
             $row[] = $d->nama;

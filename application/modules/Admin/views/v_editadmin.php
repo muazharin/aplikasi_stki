@@ -80,14 +80,14 @@
                                     <form class="form-horizontal" action="<?php echo base_url('Admin/ubahPW') ?>" id="form" method="post">
                                         <div class="form-group row">
                                             <label for="inputName" class="col-sm-2 col-form-label">Password Baru</label>
-                                            <div class="col-sm-8">
+                                            <div class="col-sm-6">
                                                 <input type="hidden" class="form-control" name="id" value="<?= $data->id_admin ?>">
-                                                <input type="password" class="form-control" id="inputName" name="pw1" placeholder="Password">
+                                                <input type="password" class="form-control" id="inputName" name="pw1" placeholder="Password Baru">
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="inputEmail" class="col-sm-2 col-form-label">Konfirmasi Password</label>
-                                            <div class="col-sm-8">
+                                            <label for="inputEmail" class="col-sm-2 col-form-label">Konfirmasi</label>
+                                            <div class="col-sm-6">
                                                 <input type="password" class="form-control" id="inputEmail" name="pw2" placeholder="Konfirmasi Password">
                                             </div>
                                         </div>

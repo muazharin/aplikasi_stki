@@ -20,6 +20,7 @@ class StrukUser_m extends CI_Model
 
         $this->db->from($this->table);
         $this->db->where('user_id', $this->session->userdata['idlog']);
+
         $i = 0;
 
         foreach ($this->column_search as $item) // looping awal

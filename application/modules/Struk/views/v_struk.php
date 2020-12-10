@@ -16,6 +16,7 @@
                              <thead>
                                  <tr>
                                      <th style="text-align:center">No</th>
+                                     <th style="text-align:center">Nama User</th>
                                      <th style="text-align:center">Tanggal Slip</th>
                                      <th style="text-align:center">Rupiah</th>
                                      <th style="text-align:center">Nama Penerima</th>
